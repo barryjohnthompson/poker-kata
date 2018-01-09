@@ -13,7 +13,8 @@ HAND_TYPES = (
         'Flush',
         'Full House',
         'Four of a Kind',
-        'Straight Flush'
+        'Straight Flush',
+        'Royal Flush'
 )
 
 class Card:
@@ -70,6 +71,55 @@ class PokerHand:
 
     def __eq__(self, other):
         return self.cards[-1] == other.cards[-1]
+
+    @property
+    def hand_type(self):
+
+        dic = {
+            'H':0,
+            'D':0,
+            'S':0,
+            'C':0
+        }
+        val_dic = {
+            '2': 0,
+            '3': 0,
+            '4': 0,
+            '5': 0,
+            '6': 0,
+            '7': 0,
+            '8': 0,
+            '9': 0,
+            'T': 0,
+            'J': 0,
+            'Q': 0,
+            'K': 0,
+            'A': 0
+        }
+        all_same_suit = False
+        #this loops through each card in the hand
+        for n in range(len(self.cards)):
+            # if the suit of card[n] matches the first
+            dic[self.cards[n].suit] += 1
+
+        # royal flush?
+        if max(dic.values()) == 5 and self.cards[-1].value == 'A' and self.cards[0].value == 'T':
+            return 'Royal Flush'
+
+        # straight Flush
+        lowest_value = self.cards[0].value
+        lowest_index = VALUES.index(lowest_value)
+
+        if max(dic.values()) == 5 and self.cards[-1].value == VALUES[lowest_index + 4]:
+            return 'Straight Flush'
+
+        # Flush
+        if max(dic.values()) == 5 and self.cards[-1].value != VALUES[lowest_index + 4]:
+            return 'Flush'
+
+        # four of a Kind
+        if max(dic.values()) == 5
+
 
 def create_deck():
     cards = [Card(value, suit) for value, suit in product(VALUES, SUITS)]

@@ -22,6 +22,7 @@ assert card_1 > card_3
 assert not card_1 < card_3
 
 # test comparing two poker hands
+# test for highest card
 cards = [Card(v, s) for v, s in [(A, S), (2, D), (4, C), (7,  H), (K, S)]]
 hand_1 = PokerHand(cards)
 cards = [Card(v, s) for v, s in [(A, C), (3, D), (5, C), (8,  H), (T, S)]]
@@ -35,6 +36,36 @@ cards = [Card(v, s) for v, s in [(Q, S), (3, D), (5, C), (8,  H), (T, S)]]
 hand_2 = PokerHand(cards)
 assert hand_1 > hand_2
 assert hand_2 < hand_1
+
+# test comparing two poker hands
+# test for royal flush
+cards = [Card(v, s) for v, s in [(T, S), (J, S), (Q, S), (K,  S), (A, S)]]
+hand_1 = PokerHand(cards)
+print(hand_1.hand_type)
+#cards = [Card(v, s) for v, s in [(A, C), (3, D), (5, C), (8,  H), (T, S)]]
+#hand_2 = PokerHand(cards)
+# assert hand_1 == hand_2
+# assert hand_2 == hand_1
+
+# test comparing two poker hands
+# test for straight flush
+cards = [Card(v, s) for v, s in [(4, S), (5, S), (6, S), (7,  S), (8, S)]]
+hand_1 = PokerHand(cards)
+print(hand_1.hand_type)
+cards = [Card(v, s) for v, s in [(A, C), (3, D), (5, C), (8,  H), (T, S)]]
+hand_2 = PokerHand(cards)
+# assert hand_1 == hand_2
+# assert hand_2 == hand_1
+
+# test comparing two poker hands
+# test for a flush
+cards = [Card(v, s) for v, s in [(4, S), (9, S), (Q, S), (7,  S), (2, S)]]
+hand_1 = PokerHand(cards)
+print(hand_1.hand_type)
+cards = [Card(v, s) for v, s in [(A, C), (3, D), (5, C), (8,  H), (T, S)]]
+hand_2 = PokerHand(cards)
+assert hand_1 == hand_2
+assert hand_2 == hand_1
 
 # test creating a deck
 deck = create_deck()
