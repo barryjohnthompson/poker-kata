@@ -10,3 +10,5 @@ implementation to cover more hand types. The highest ranked hand type is
 
 Refer to https://www.cardplayer.com/rules-of-poker/hand-rankings for rank
 descriptions
+
+Starte code originally created by Ben Nuttal for the Cambridge Python User Group. Modified by Barry Thompson and Robert Krautz.
