@@ -102,6 +102,10 @@ class PokerHand:
             # if the suit of card[n] matches the first
             dic[self.cards[n].suit] += 1
 
+        for n in range(len(self.cards)):
+            # if the suit of card[n] matches the first
+            val_dic[self.cards[n].value] += 1
+
         # royal flush?
         if max(dic.values()) == 5 and self.cards[-1].value == 'A' and self.cards[0].value == 'T':
             return 'Royal Flush'
@@ -118,7 +122,21 @@ class PokerHand:
             return 'Flush'
 
         # four of a Kind
-        if max(dic.values()) == 5
+        if max(val_dic.values()) == 4:
+            return 'Four of a kind'
+
+        # full House
+        if 3 in val_dic.values() and 2 in val_dic.values():
+            return 'Full house'
+
+        # straight
+        if self.cards[-1].value == VALUES[lowest_index + 4]:
+            return 'Straight'
+
+        # Three of a kind
+        if 3 in val_dic.values() and 2 not in val_dic.values():
+            return 'Three of a kind'
+
 
 
 def create_deck():
