@@ -99,11 +99,11 @@ class PokerHand:
         all_same_suit = False
         #this loops through each card in the hand
         for n in range(len(self.cards)):
-            # if the suit of card[n] matches the first
+            # increment the counter for the suit of card[n]
             dic[self.cards[n].suit] += 1
 
         for n in range(len(self.cards)):
-            # if the suit of card[n] matches the first
+            # increment the counter for the value of card[n]
             val_dic[self.cards[n].value] += 1
 
         # royal flush?
@@ -136,6 +136,20 @@ class PokerHand:
         # Three of a kind
         if 3 in val_dic.values() and 2 not in val_dic.values():
             return 'Three of a kind'
+
+        # Two Pair
+        pair_count = 0
+        for n in range(len(self.cards)):
+            # increment the counter for the value of card[n]
+            if val_dic[self.cards[n].value] == 2:
+                pair_count += 1
+
+            if pair_count == 2:
+                return 'Two pair'
+
+        # Pair
+        if max(val_dic.values()) == 2 and min(val_dic.values()) == 0:
+            return 'Pair'
 
 
 

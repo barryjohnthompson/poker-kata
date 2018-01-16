@@ -104,6 +104,15 @@ hand_2 = PokerHand(cards)
 #assert hand_1 == hand_2
 #assert hand_2 == hand_1
 
+# test for two pair
+cards = [Card(v, s) for v, s in [(8, S), (8, C), (6, H), (6,  D), (9, S)]]
+hand_1 = PokerHand(cards)
+print(hand_1.hand_type)
+cards = [Card(v, s) for v, s in [(A, C), (3, D), (5, C), (8,  H), (T, S)]]
+hand_2 = PokerHand(cards)
+#assert hand_1 == hand_2
+#assert hand_2 == hand_1
+
 # test creating a deck
 deck = create_deck()
 assert len(deck) == 52
