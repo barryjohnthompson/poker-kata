@@ -99,17 +99,26 @@ hand_2 = PokerHand(cards)
 cards = [Card(v, s) for v, s in [(8, S), (8, C), (8, H), (6,  D), (9, S)]]
 hand_1 = PokerHand(cards)
 print(hand_1.hand_type)
-cards = [Card(v, s) for v, s in [(A, C), (3, D), (5, C), (8,  H), (T, S)]]
-hand_2 = PokerHand(cards)
+#cards = [Card(v, s) for v, s in [(A, C), (3, D), (5, C), (8,  H), (T, S)]]
+#hand_2 = PokerHand(cards)
 #assert hand_1 == hand_2
 #assert hand_2 == hand_1
 
 # test for two pair
-cards = [Card(v, s) for v, s in [(8, S), (8, C), (6, H), (6,  D), (9, S)]]
+cards = [Card(v, s) for v, s in [(3, S), (3, C), (9, H), (9,  D), (7, S)]]
 hand_1 = PokerHand(cards)
 print(hand_1.hand_type)
-cards = [Card(v, s) for v, s in [(A, C), (3, D), (5, C), (8,  H), (T, S)]]
-hand_2 = PokerHand(cards)
+#cards = [Card(v, s) for v, s in [(A, C), (3, D), (5, C), (8,  H), (T, S)]]
+#hand_2 = PokerHand(cards)
+#assert hand_1 == hand_2
+#assert hand_2 == hand_1
+
+# test for pair
+#cards = [Card(v, s) for v, s in [(8, S), (8, C), (2, H), (4,  D), (9, S)]]
+#hand_1 = PokerHand(cards)
+#print(hand_1.hand_type)
+#cards = [Card(v, s) for v, s in [(A, C), (3, D), (5, C), (8,  H), (T, S)]]
+#hand_2 = PokerHand(cards)
 #assert hand_1 == hand_2
 #assert hand_2 == hand_1
 

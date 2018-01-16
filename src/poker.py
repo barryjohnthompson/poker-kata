@@ -137,19 +137,17 @@ class PokerHand:
         if 3 in val_dic.values() and 2 not in val_dic.values():
             return 'Three of a kind'
 
-        # Two Pair
+        # Two Pair or pair
         pair_count = 0
-        for n in range(len(self.cards)):
+        for k, v in val_dic.items():
             # increment the counter for the value of card[n]
-            if val_dic[self.cards[n].value] == 2:
+            if val_dic. == 2:
                 pair_count += 1
 
-            if pair_count == 2:
-                return 'Two pair'
-
-        # Pair
-        if max(val_dic.values()) == 2 and min(val_dic.values()) == 0:
-            return 'Pair'
+        if pair_count == 2:
+            return 'Two pair'
+        #if pair_count == 1:
+        #    return 'Pair'
 
 
 
